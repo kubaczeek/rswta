@@ -30,6 +30,17 @@ def dodaj_wydatek(request):
         wydatek.save()
     return render(request, 'dodaj_wydatek.html', {'kategorie': kategorie})
 
+def dodaj_przychod(request):
+    kategorie = Kategoria.objects.all()
+    if request.method == 'POST':
+        tytul = request.POST['tytul']
+        kwota = request.POST['kwota']
+        data = request.POST['data']
+        kategoria = request.POST['kategoria']
+        przychod = Przychod(tytul=tytul, kwota=kwota, data=data, kategoria_id=kategoria)
+        przychod.save()
+    return render(request, 'dodaj_przychod.html', {'kategorie': kategorie})
+
 def zestawienia(request):
     wydatki = Wydatek.objects.all()
     przychody = Przychod.objects.all()

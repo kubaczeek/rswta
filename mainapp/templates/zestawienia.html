@@ -3,48 +3,56 @@
     {% include 'navbar.html' %}
 <head>
   <title>Zestawienia</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
-    }
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
+        h1 {
+            color: #fff;
+        }
 
-    th, td {
-      border: 1px solid #fff;
-      padding: 8px;
-      text-align: left;
-    }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
 
-    th {
-      background-color: #333;
-    }
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+            text-align: left;
+        }
 
-    h1, h2 {
-      color: #fff;
-    }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
 
-    .add-button {
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 15px;
-      margin-top: 10px;
-      background-color: #333;
-    }
+       .add-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-top: 20px;
+            background-color: #333;
+        }
 
-    .add-button:hover {
-      background-color: #999;
-    }
-  </style>
+        .add-button:hover {
+            background-color: #999;
+        }
+    </style>
 </head>
 <body>
   <h1>Zestawienia</h1>
@@ -83,5 +91,6 @@
     {% endfor %}
   </table>
   <button class="add-button" onclick="window.location='{% url 'dodaj_wydatek' %}'">Dodaj wydatek</button>
+  <button class="add-button" onclick="window.location='{% url 'dodaj_przychod' %}'">Dodaj przychod</button>
 </body>
 </html>
