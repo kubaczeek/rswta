@@ -1,0 +1,31 @@
+<!-- static/css/home.css -->
+<style>
+    h1 {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #666;
+        margin-bottom: 40px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    .button:hover {
+        background-color: #3e8e41;
+    }
+</style>

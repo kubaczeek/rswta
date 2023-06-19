@@ -1,0 +1,78 @@
+<!-- dodaj_wydatek.html -->
+{% include 'navbar.html' %}
+<html>
+<head>
+  <title>Dodaj wydatek/przychód</title>
+  <style>
+    body {
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 200px;
+        padding: 5px;
+        margin-top: 5px;
+    }
+
+    input[type="date"] {
+        margin-top: 5px;
+    }
+
+    input[type="submit"] {
+        border: none;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dodaj wydatek/przychód</h1>
+  <form method="post">
+    {% csrf_token %}
+    <label for="tytul">Tytuł:</label>
+    <input type="text" id="tytul" name="tytul"><br>
+    <label for="kwota">Kwota:</label>
+    <input type="number" id="kwota" name="kwota"><br>
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data"><br>
+    <label for="kategoria">Kategoria:</label>
+    <select id="kategoria" name="kategoria">
+      {% for kategoria in kategorie %}
+        <option value="{{ kategoria.id }}">{{ kategoria.nazwa }}</option>
+      {% endfor %}
+    </select><br>
+    <input type="submit" value="Dodaj">
+  </form>
+</body>
+</html>

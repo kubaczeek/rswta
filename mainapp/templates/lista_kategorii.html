@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    {% include 'navbar.html' %}
+<head>
+    <title>Lista kategorii</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+       .add-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-top: 20px;
+            background-color: #333;
+        }
+
+        .add-button:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista kategorii</h1>
+    <a class="add-button" href="{% url 'dodaj_kategorie' %}">Dodaj kategorię</a>
+    <table>
+        <tr>
+            <th>Nazwa</th>
+        </tr>
+        {% for kategoria in kategorie %}
+        <tr>
+            <td>{{ kategoria.nazwa }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

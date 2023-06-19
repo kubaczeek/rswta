@@ -1,0 +1,82 @@
+<!-- templates/home.html -->
+{% block content %}
+{% include 'navbar.html' %}
+<h1>Witaj w aplikacji do zarządzania budżetem domowym!</h1>
+<div class="image-wrapper">
+  <img src="https://faktypilskie.pl/news_foto/2022/0216/139508.jpg" alt="Zdjęcie">
+</div>
+<div class="content-wrapper">
+  <div class="column">
+    <p>Czym jest Lorem Ipsum?
+    Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV wieku przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Przeżył nie tylko pięć wieków, ale także skok w elektronicznym</p>
+    <p>Dlaczego go używamy?
+    Jest powszechnie uznawany za tekst standardowy w tej dziedzinie od czasu XV wieku, kiedy to nieznany drukarz wziął galley tekstu i potraktował go jako swoją wersję klasycznej książki. Przeżył on nie tylko pięć wieków, ale także skok w elektronicznym pozostaniem</p>
+  </div>
+  <div class="column">
+    <p>Skąd się to tu wzięło?
+    W odróżnieniu od popularnego przekonania, Lorem Ipsum nie jest tylko przypadkowym tekstem. Ma ono korzenie w klasycznej łacińskiej literaturze z 45 roku p.n.e., co czyni go ponad 2000-letnim. Richard McClintock, łaciński profesor z Hampden-Sydney College w Wirginii,</p>
+    <p>Gdzie mogę to znaleźć?
+    Istnieje wiele wariacji tekstów Lorem Ipsum, ale większość zmieniła się pod wpływem dodanego humoru lub przypadkowych słów, które nawet trochę nie wyglądają wiarygodnie. Jeśli masz zamiar użyć fragmentu Lorem Ipsum, powinieneś być pewien, że nie ma niczego obraźliwego</p>
+  </div>
+</div>
+{% endblock %}
+
+<!-- static/css/home.css -->
+<style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      font-size: 18px;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+  h1 {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .column {
+    width: 500px;
+    margin: 0 10px;
+  }
+
+  .image-wrapper {
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    {% include 'navbar.html' %}
+<head>
+  <title>Zestawienia</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #fff;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+    }
+
+    h1, h2 {
+      color: #fff;
+    }
+
+    .add-button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      background-color: #333;
+    }
+
+    .add-button:hover {
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Zestawienia</h1>
+  <h2>Wydatki</h2>
+  <table>
+    <tr>
+      <th>Tytuł</th>
+      <th>Kwota</th>
+      <th>Data</th>
+      <th>Kategoria</th>
+    </tr>
+    {% for wydatek in wydatki %}
+      <tr>
+        <td>{{ wydatek.tytul }}</td>
+        <td>{{ wydatek.kwota }}</td>
+        <td>{{ wydatek.data }}</td>
+        <td>{{ wydatek.kategoria.nazwa }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <h2>Przychody</h2>
+  <table>
+    <tr>
+      <th>Tytuł</th>
+      <th>Kwota</th>
+      <th>Data</th>
+      <th>Kategoria</th>
+    </tr>
+    {% for przychod in przychody %}
+      <tr>
+        <td>{{ przychod.tytul }}</td>
+        <td>{{ przychod.kwota }}</td>
+        <td>{{ przychod.data }}</td>
+        <td>{{ przychod.kategoria.nazwa }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <button class="add-button" onclick="window.location='{% url 'dodaj_wydatek' %}'">Dodaj wydatek</button>
+</body>
+</html>
