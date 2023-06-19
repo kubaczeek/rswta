@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
@@ -12,4 +14,5 @@ urlpatterns = [
     path('zestawienia/', views.zestawienia, name='zestawienia'),
     path('dodaj_kategorie/', views.dodaj_kategorie, name='dodaj_kategorie'),
     path('kategorie/', views.lista_kategorii, name='lista_kategorii'),
-]
+    path('wykresy/', views.wykresy, name='wykresy'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

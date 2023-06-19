@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  {% include 'navbar.html' %}
+  {% load static %}
+<head>
+    <title>Wykresy</title>
+      <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    h1, h2, p {
+      color: #fff;
+    }
+
+    ul {
+      color: #fff;
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    footer {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+    <h1>Wykresy</h1>
+
+    <h2>Porównanie ogólnych wydatków do przychodów</h2>
+    <img src="/media/images/wykres1.png" alt="Wykres 1">
+
+    <h2>Szczegółowe informacje na temat wydatków</h2>
+    <img src="{% static 'media/images/wykres2.png' %}" alt="Wykres 2">
+
+    <h2>Szczegółowe informacje na temat przychodów</h2>
+    <img src="{% static 'media/images/wykres3.png' %}" alt="Wykres 3">
+</body>
+</html>
