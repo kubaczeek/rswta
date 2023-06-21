@@ -61,18 +61,18 @@
   <form method="post">
     {% csrf_token %}
     <label for="tytul">Tytuł:</label>
-    <input type="text" id="tytul" name="tytul"><br>
+    <input type="text" id="tytul" name="tytul" required><br>
     <label for="kwota">Kwota:</label>
-    <input type="number" id="kwota" name="kwota"><br>
+    <input type="number" id="kwota" name="kwota" required><br>
     <label for="data">Data:</label>
-    <input type="date" id="data" name="data"><br>
+    <input type="date" id="data" name="data" required><br>
     <label for="kategoria">Kategoria:</label>
-    <select id="kategoria" name="kategoria">
+    <select id="kategoria" name="kategoria" required>
       {% for kategoria in kategorie %}
         <option value="{{ kategoria.id }}">{{ kategoria.nazwa }}</option>
       {% endfor %}
     </select><br>
-    <input type="submit" value="Dodaj">
+    <input type="submit" value="Dodaj" required>
   </form>
 </body>
 </html>

@@ -4,37 +4,52 @@
   {% load static %}
 <head>
     <title>Wykresy</title>
-      <style>
-    body {
-      background-color: #000;
-      color: #fff;
-    }
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-    h1, h2, p {
-      color: #fff;
-    }
+      h1, h2, p {
+        color: #fff;
+      }
 
-    ul {
-      color: #fff;
-      list-style-type: disc;
-      padding-left: 20px;
-    }
+      ul {
+        color: #fff;
+        list-style-type: disc;
+        padding-left: 20px;
+      }
 
-    footer {
-      color: #fff;
-    }
-  </style>
+      footer {
+        color: #fff;
+      }
+
+      .chart {
+        margin-bottom: 20px;
+        width: 600px; /* Możesz dostosować szerokość wykresu do własnych preferencji */
+      }
+    </style>
 </head>
 <body>
     <h1>Wykresy</h1>
 
     <h2>Porównanie ogólnych wydatków do przychodów</h2>
-    <img src="/media/images/wykres1.png" alt="Wykres 1">
+    <div class="chart">
+      <img src="/media/images/wykres1.png" alt="Wykres 1"/>
+    </div>
 
     <h2>Szczegółowe informacje na temat wydatków</h2>
-    <img src="{% static 'media/images/wykres2.png' %}" alt="Wykres 2">
+    <div class="chart">
+      <img src="/media/images/wykres2.png" alt="Wykres 2"/>
+    </div>
 
     <h2>Szczegółowe informacje na temat przychodów</h2>
-    <img src="{% static 'media/images/wykres3.png' %}" alt="Wykres 3">
+    <div class="chart">
+      <img src="/media/images/wykres3.png" alt="Wykres 3"/>
+    </div>
 </body>
 </html>

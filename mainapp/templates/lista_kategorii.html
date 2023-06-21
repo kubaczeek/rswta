@@ -60,12 +60,20 @@
     <table>
         <tr>
             <th>Nazwa</th>
+            <th>Akcje</th>
         </tr>
         {% for kategoria in kategorie %}
         <tr>
             <td>{{ kategoria.nazwa }}</td>
+            <td>
+                <form method="POST" action="{% url 'usun_kategorie' kategoria.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-button">Usuń</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </table>
 </body>
+
 </html>

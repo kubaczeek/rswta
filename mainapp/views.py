@@ -1,6 +1,6 @@
 import matplotlib
 from django.db.models import Sum
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 import seaborn as sns
 import matplotlib.pyplot as plt
 matplotlib.use('agg')
@@ -117,3 +117,31 @@ def wykresy(request):
     plt.close()
 
     return render(request, 'wykresy.html')
+
+
+def usun_kategorie(request, kategoria_id):
+    kategoria = get_object_or_404(Kategoria, id=kategoria_id)
+
+    if request.method == 'POST':
+        kategoria.delete()
+        return redirect('lista_kategorii')
+
+    return redirect('lista_kategorii')
+
+def usun_wydatek(request, wydatek_id):
+    wydatek = get_object_or_404(Wydatek, id=wydatek_id)
+
+    if request.method == 'POST':
+        wydatek.delete()
+        return redirect('zestawienia')
+
+    return redirect('zestawienia')
+
+def usun_przychod(request, przychod_id):
+    przychod = get_object_or_404(Przychod, id=przychod_id)
+
+    if request.method == 'POST':
+        przychod.delete()
+        return redirect('zestawienia')
+
+    return redirect('zestawienia')

@@ -63,6 +63,7 @@
       <th>Kwota</th>
       <th>Data</th>
       <th>Kategoria</th>
+      <th>Akcje</th>
     </tr>
     {% for wydatek in wydatki %}
       <tr>
@@ -70,6 +71,12 @@
         <td>{{ wydatek.kwota }}</td>
         <td>{{ wydatek.data }}</td>
         <td>{{ wydatek.kategoria.nazwa }}</td>
+        <td>
+          <form method="POST" action="{% url 'usun_wydatek' wydatek.id %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Usuń</button>
+          </form>
+        </td>
       </tr>
     {% endfor %}
   </table>
@@ -80,6 +87,7 @@
       <th>Kwota</th>
       <th>Data</th>
       <th>Kategoria</th>
+      <th>Akcje</th>
     </tr>
     {% for przychod in przychody %}
       <tr>
@@ -87,6 +95,12 @@
         <td>{{ przychod.kwota }}</td>
         <td>{{ przychod.data }}</td>
         <td>{{ przychod.kategoria.nazwa }}</td>
+        <td>
+          <form method="POST" action="{% url 'usun_przychod' przychod.id %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Usuń</button>
+          </form>
+        </td>
       </tr>
     {% endfor %}
   </table>
