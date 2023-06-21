@@ -1,3 +1,5 @@
+import logging
+
 import matplotlib
 from django.db.models import Sum
 from django.shortcuts import render, redirect, get_object_or_404
@@ -6,7 +8,7 @@ import matplotlib.pyplot as plt
 matplotlib.use('agg')
 
 
-from forms import KategoriaForm
+from forms import KategoriaForm, PrzychodForm, WydatekForm
 from mainapp import models
 from mainapp.models import Kategoria, Wydatek, Przychod
 
@@ -145,3 +147,39 @@ def usun_przychod(request, przychod_id):
         return redirect('zestawienia')
 
     return redirect('zestawienia')
+
+def edytuj_kategorie(request, kategoria_id):
+    kategoria = get_object_or_404(Kategoria, id=kategoria_id)
+
+    if request.method == 'POST':
+        form = KategoriaForm(request.POST, instance=kategoria)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_kategorii')
+    else:
+        form = KategoriaForm(instance=kategoria)
+
+    return render(request, 'edytuj_kategorie.html', {'form': form})
+
+def edytuj_wydatek(request, wydatek_id):
+    wydatek = get_object_or_404(Wydatek, pk=wydatek_id)
+    if request.method == 'POST':
+        form = WydatekForm(request.POST, instance=wydatek)
+        if form.is_valid():
+            form.save()
+            return redirect('zestawienia')  # Przekierowanie po zapisie zmian
+    else:
+        form = WydatekForm(instance=wydatek)
+    return render(request, 'edytuj_wydatek.html', {'form': form})
+
+def edytuj_przychod(request):
+    przychod_id = request.GET.get('przychod_id')
+    przychod = get_object_or_404(Przychod, pk=przychod_id)
+    if request.method == 'POST':
+        form = PrzychodForm(request.POST, instance=przychod)
+        if form.is_valid():
+            form.save()
+            return redirect('zestawienia')  # Przekierowanie po zapisie zmian
+    else:
+        form = PrzychodForm(instance=przychod)
+    return render(request, 'edytuj_przychod.html', {'form': form})

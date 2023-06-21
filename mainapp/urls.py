@@ -18,4 +18,7 @@ urlpatterns = [
     path('usun_kategorie/<int:kategoria_id>/', views.usun_kategorie, name='usun_kategorie'),
     path('usun_wydatek/<int:wydatek_id>/', views.usun_wydatek, name='usun_wydatek'),
     path('usun_przychod/<int:przychod_id>/', views.usun_przychod, name='usun_przychod'),
+    path('edytuj_kategorie/<int:kategoria_id>/', views.edytuj_kategorie, name='edytuj_kategorie'),
+    path('edytuj_wydatek/<int:wydatek_id>/', views.edytuj_wydatek, name='edytuj_wydatek'),
+    path('edytuj_przychod/<int:przychod_id>/', views.edytuj_przychod, name='edytuj_przychod'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

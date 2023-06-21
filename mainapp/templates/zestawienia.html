@@ -52,6 +52,27 @@
         .add-button:hover {
             background-color: #999;
         }
+                .edit-button {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: #333;
+        }
+
+        .edit-button:hover {
+            background-color: #999;
+        }
+
+        .delete-button {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: #900;
+        }
+
+        .delete-button:hover {
+            background-color: #c00;
+        }
     </style>
 </head>
 <body>
@@ -76,6 +97,10 @@
             {% csrf_token %}
             <button type="submit" class="delete-button">Usuń</button>
           </form>
+          <form method="GET" action="{% url 'edytuj_wydatek' wydatek.id %}">
+              {% csrf_token %}
+              <button type="submit" class="edit-button">Edytuj</button>
+          </form>
         </td>
       </tr>
     {% endfor %}
@@ -99,6 +124,11 @@
           <form method="POST" action="{% url 'usun_przychod' przychod.id %}">
             {% csrf_token %}
             <button type="submit" class="delete-button">Usuń</button>
+          </form>
+          <form method="GET" action="{% url 'edytuj_przychod' przychod.id %}">
+              {% csrf_token %}
+              <input type="hidden" name="przychod_id" value="{{ przychod.id }}">
+              <button type="submit" class="edit-button">Edytuj</button>
           </form>
         </td>
       </tr>
